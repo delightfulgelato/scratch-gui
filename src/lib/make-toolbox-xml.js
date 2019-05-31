@@ -156,6 +156,7 @@ const looks = function (isStage, targetId, costumeName, backdropName) {
     return `
     <category name="%{BKY_CATEGORY_LOOKS}" id="looks" colour="#9966FF" secondaryColour="#774DCB">
         ${isStage ? '' : `
+        ${/*        
         <block type="looks_sayforsecs">
             <value name="MESSAGE">
                 <shadow type="text">
@@ -175,6 +176,7 @@ const looks = function (isStage, targetId, costumeName, backdropName) {
                 </shadow>
             </value>
         </block>
+        */''}
         <block type="looks_thinkforsecs">
             <value name="MESSAGE">
                 <shadow type="text">
@@ -732,7 +734,7 @@ const makeToolboxXML = function (isStage, targetId, categoriesXML,
 
     const everything = [
         xmlOpen,
-        // motion(isStage, targetId), gap,
+        motion(isStage, targetId), gap,
         looks(isStage, targetId, costumeName, backdropName), gap,
         sound(isStage, targetId, soundName), gap,
         events(isStage, targetId), gap,
