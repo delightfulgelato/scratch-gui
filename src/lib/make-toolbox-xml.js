@@ -90,12 +90,14 @@ const motion = function (isStage, targetId) {
                 </shadow>
             </value>
         </block>
+        ${/*  
         <block type="motion_pointtowards">
             <value name="TOWARDS">
                 <shadow type="motion_pointtowards_menu">
                 </shadow>
             </value>
         </block>
+                */''}
         ${blockSeparator}
         <block type="motion_changexby">
             <value name="DX">
@@ -176,7 +178,6 @@ const looks = function (isStage, targetId, costumeName, backdropName) {
                 </shadow>
             </value>
         </block>
-        */''}
         <block type="looks_thinkforsecs">
             <value name="MESSAGE">
                 <shadow type="text">
@@ -197,6 +198,7 @@ const looks = function (isStage, targetId, costumeName, backdropName) {
             </value>
         </block>
         ${blockSeparator}
+        */''}
         `}
         ${isStage ? `
             <block type="looks_switchbackdropto">
@@ -348,12 +350,16 @@ const events = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_EVENTS}" id="events" colour="#FFD500" secondaryColour="#CC9900">
         <block type="event_whenflagclicked"/>
+        ${/*
         <block type="event_whenkeypressed">
         </block>
+        */''}
         ${isStage ? `
             <block type="event_whenstageclicked"/>
         ` : `
-            <block type="event_whenthisspriteclicked"/>
+        ${/*
+        <block type="event_whenthisspriteclicked"/>
+        */''}
         `}
         <block type="event_whenbackdropswitchesto">
         </block>
@@ -435,11 +441,13 @@ const sensing = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_SENSING}" id="sensing" colour="#4CBFE6" secondaryColour="#2E8EB8">
         ${isStage ? '' : `
+        ${/*
             <block type="sensing_touchingobject">
                 <value name="TOUCHINGOBJECTMENU">
                     <shadow type="sensing_touchingobjectmenu"/>
                 </value>
             </block>
+            */''}
             <block type="sensing_touchingcolor">
                 <value name="COLOR">
                     <shadow type="colour_picker"/>
@@ -469,6 +477,7 @@ const sensing = function (isStage) {
         </block>
         <block id="answer" type="sensing_answer"/>
         ${blockSeparator}
+        ${/*
         <block type="sensing_keypressed">
             <value name="KEY_OPTION">
                 <shadow type="sensing_keyoptions"/>
@@ -477,6 +486,7 @@ const sensing = function (isStage) {
         <block type="sensing_mousedown"/>
         <block type="sensing_mousex"/>
         <block type="sensing_mousey"/>
+        */''}
         ${isStage ? '' : `
             ${blockSeparator}
             '<block type="sensing_setdragmode" id="sensing_setdragmode"></block>'+
