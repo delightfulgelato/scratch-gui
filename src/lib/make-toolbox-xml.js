@@ -461,12 +461,14 @@ const sensing = function (isStage) {
                     <shadow type="colour_picker"/>
                 </value>
             </block>
+            ${/*
             <block type="sensing_distanceto">
                 <value name="DISTANCETOMENU">
                     <shadow type="sensing_distancetomenu"/>
                 </value>
             </block>
             ${blockSeparator}
+            */''}
         `}
         <block id="askandwait" type="sensing_askandwait">
             <value name="QUESTION">
