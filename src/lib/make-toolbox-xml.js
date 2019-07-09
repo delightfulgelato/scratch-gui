@@ -35,6 +35,7 @@ const motion = function (isStage, targetId) {
                 </shadow>
             </value>
         </block>
+        ${/*
         ${blockSeparator}
         <block type="motion_goto">
             <value name="TO">
@@ -132,7 +133,9 @@ const motion = function (isStage, targetId) {
         ${blockSeparator}
         <block id="${targetId}_xposition" type="motion_xposition"/>
         <block id="${targetId}_yposition" type="motion_yposition"/>
-        <block id="${targetId}_direction" type="motion_direction"/>`}
+        <block id="${targetId}_direction" type="motion_direction"/>
+        */''}
+        `}
         ${categorySeparator}
     </category>
     `;
@@ -155,6 +158,7 @@ const looks = function (isStage, targetId, costumeName, backdropName) {
     const hmm = ScratchBlocks.ScratchMsgs.translate('LOOKS_HMM', 'Hmm...');
     return `
     <category name="%{BKY_CATEGORY_LOOKS}" id="looks" colour="#9966FF" secondaryColour="#774DCB">
+        ${/*
         ${isStage ? '' : `
         <block type="looks_sayforsecs">
             <value name="MESSAGE">
@@ -246,6 +250,7 @@ const looks = function (isStage, targetId, costumeName, backdropName) {
             </block>
         `}
         ${blockSeparator}
+        */''}
         <block type="looks_changeeffectby">
             <value name="CHANGE">
                 <shadow type="math_number">
@@ -261,6 +266,7 @@ const looks = function (isStage, targetId, costumeName, backdropName) {
             </value>
         </block>
         <block type="looks_cleargraphiceffects"/>
+        ${/*
         ${blockSeparator}
         ${isStage ? '' : `
             <block type="looks_show"/>
@@ -282,6 +288,7 @@ const looks = function (isStage, targetId, costumeName, backdropName) {
             <block id="backdropnumbername" type="looks_backdropnumbername"/>
             <block id="${targetId}_size" type="looks_size"/>
         `}
+        */''}
         ${categorySeparator}
     </category>
     `;
@@ -346,6 +353,7 @@ const events = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_EVENTS}" id="events" colour="#FFD500" secondaryColour="#CC9900">
         <block type="event_whenflagclicked"/>
+        ${/*
         <block type="event_whenkeypressed">
         </block>
         ${isStage ? `
@@ -377,6 +385,7 @@ const events = function (isStage) {
             </value>
         </block>
         ${categorySeparator}
+        */''}
     </category>
     `;
 };
@@ -384,6 +393,7 @@ const events = function (isStage) {
 const control = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
+        ${/*
         <block type="control_wait">
             <value name="DURATION">
                 <shadow type="math_positive_number">
@@ -391,6 +401,7 @@ const control = function (isStage) {
                 </shadow>
             </value>
         </block>
+        */''}
         ${blockSeparator}
         <block type="control_repeat">
             <value name="TIMES">
@@ -399,6 +410,7 @@ const control = function (isStage) {
                 </shadow>
             </value>
         </block>
+        ${/*
         <block id="forever" type="control_forever"/>
         ${blockSeparator}
         <block type="control_if"/>
@@ -423,6 +435,7 @@ const control = function (isStage) {
             </block>
             <block type="control_delete_this_clone"/>
         `}
+        */''}
         ${categorySeparator}
     </category>
     `;
@@ -734,13 +747,13 @@ const makeToolboxXML = function (isStage, targetId, categoriesXML,
         xmlOpen,
         motion(isStage, targetId), gap,
         looks(isStage, targetId, costumeName, backdropName), gap,
-        sound(isStage, targetId, soundName), gap,
+        // sound(isStage, targetId, soundName), gap,
         events(isStage, targetId), gap,
         control(isStage, targetId), gap,
-        sensing(isStage, targetId), gap,
-        operators(isStage, targetId), gap,
-        variables(isStage, targetId), gap,
-        myBlocks(isStage, targetId)
+        // sensing(isStage, targetId), gap,
+        // operators(isStage, targetId), gap,
+        // variables(isStage, targetId), gap,
+        // myBlocks(isStage, targetId)
     ];
 
     if (categoriesXML) {
