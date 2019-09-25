@@ -732,7 +732,7 @@ const makeToolboxXML = function (isStage, targetId, categoriesXML,
 
     const everything = [
         xmlOpen,
-        motion(isStage, targetId), gap,
+        // motion(isStage, targetId), gap,
         looks(isStage, targetId, costumeName, backdropName), gap,
         sound(isStage, targetId, soundName), gap,
         events(isStage, targetId), gap,
